@@ -4,9 +4,7 @@ import Input from './form/Input';
 export default function MusicSearch() {
   return (
     <SearchWrap>
-      <form>
         <Input placeholder="Buscar"/>
-      </form>
     </SearchWrap>
   )
 }

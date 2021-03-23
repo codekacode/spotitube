@@ -2,30 +2,26 @@ import styled from "@emotion/styled";
 import {BiSearch} from 'react-icons/bi';
 
 const StyledDiv = styled.div`
-  padding: 10px 10px;
-  width: 300px;
-  background: red;
+  width: 200px;
+  flex: 0.5;
   display: flex;
-  justify-content: space-around;
+  background-color: white;
+  padding: 10px;
+  border-radius: 30px;
+  color: gray;
   align-items: center;
-  margin-top: 5px;
-  gap: 16px;
-  padding: 4px 41px;
+  border: 1px solid black;
 `;
 
 const StyledInput = styled.input`
-  padding: 4px 8px;
-  border-radius: 8px;
   border: none;
-  color: black;
-  font-size: 18px;
-  background: yellow;
+  width: 100%;
   &:focus {
     outline: none;
   }
   &::placeholder {
     color: black;
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -33,7 +29,7 @@ export default function Input() {
   return (
     <StyledDiv>
       <BiSearch className="icon"/>
-      <StyledInput />
+      <StyledInput placeholder="Buscar"/>
     </StyledDiv>
   );
 }
