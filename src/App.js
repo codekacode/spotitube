@@ -1,14 +1,16 @@
 import './App.css';
-import MusicSearch from './components/MusicSearch';
-import Playlist from './pages/Playlist';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home"
+
 
 
 function App() {
   return (
-    <div className="App">
-      <MusicSearch />
-      <Playlist />
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+      </div>  
+    </Router>
   );
 }
 
