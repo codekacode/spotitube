@@ -1,8 +1,9 @@
 const colors = {
   black1: "#030303",
   black2: "#171717",
+  black3: "#242424",
   primary: "#00B050",
-  gry: "#7D7D7D",
+  grey: "#7D7D7D",
   white: "#FFFFFF"
 }
 
