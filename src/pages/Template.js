@@ -2,6 +2,7 @@ import NavBar from "../components/Contents/NavBar"
 //import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Colors from "../components/UI/Colors"
+import Player from "../components/Contents/Player"
 
 const StyledDiv = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ function Template ({children}){
           {children}
         </ContentDiv>
         <PlayerDiv>
-          <p>Payer</p>
+          <Player />
         </PlayerDiv>
     </StyledDiv>
   )
