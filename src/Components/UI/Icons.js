@@ -15,11 +15,13 @@ import music from "../../assets/icons/music.svg";
 import credit_card from "../../assets/icons/credit_card.svg";
 import heart from "../../assets/icons/heart.svg"
 import logo from "../../assets/logo/logo.svg"
-
+import next from "../../assets/icons/next.svg"
+import prev from "../../assets/icons/prev.svg"
+import stop from "../../assets/icons/stop.svg"
 
 const Icons = {
-  next: chevron_right,
-  prev: chevron_left,
+  next_page: chevron_right,
+  prev_page: chevron_left,
   credit: credit_card,
   home_filled: home_filled,
   home: home,
@@ -35,5 +37,8 @@ const Icons = {
   music: music,
   heart: heart,
   logo: logo,
+  next: next,
+  prev: prev,
+  stop: stop,
 }
 export default Icons;
