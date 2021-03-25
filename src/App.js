@@ -1,14 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Spotitube from './pages/Spotitube';
+import SpotitubeHome from './pages/SpotitubeHome';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Spotitube} />
-      </div>  
-    </Router>
+    // <Router>
+    //   <div>
+    //     <Route exact path="/" component={SpotitubeHome} />
+    //   </div>  
+    // </Router>
+    <SpotitubeHome />
   );
 }
 
