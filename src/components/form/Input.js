@@ -1,8 +1,17 @@
 import styled from "@emotion/styled";
 import {BiSearch} from 'react-icons/bi';
 
+export default function Input() {
+  return (
+    <StyledDiv>
+      <BiSearch className="icon"/>
+      <StyledInput placeholder="Buscar" type="text"/>
+    </StyledDiv>
+  );
+}
+
 const StyledDiv = styled.div`
-  width: 200px;
+  width: 250px;
   flex: 0.5;
   display: flex;
   background-color: white;
@@ -10,7 +19,9 @@ const StyledDiv = styled.div`
   border-radius: 30px;
   color: gray;
   align-items: center;
-  border: 1px solid black;
+  & .icon {
+    margin-right: 10px;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -20,16 +31,7 @@ const StyledInput = styled.input`
     outline: none;
   }
   &::placeholder {
-    color: black;
+    color: grey;
     font-size: 16px;
   }
 `;
-
-export default function Input() {
-  return (
-    <StyledDiv>
-      <BiSearch className="icon"/>
-      <StyledInput placeholder="Buscar"/>
-    </StyledDiv>
-  );
-}

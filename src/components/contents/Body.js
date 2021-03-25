@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
+import BodyInfo from "../ui/BodyInfo";
+import Header from "./Header";
 
 export default function Body() {
   return (
     <StyledBody>
-      body
+      <Header />
+      <BodyInfo />
     </StyledBody>
   )
 }
