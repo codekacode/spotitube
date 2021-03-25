@@ -4,7 +4,7 @@ const Line = styled.div`
   display: flex;
   gap: 10px;
   & > div {
-    width: 50%;
+    width: 13rem;
     margin: auto;
     border: 1px solid #d9dadc;
   }

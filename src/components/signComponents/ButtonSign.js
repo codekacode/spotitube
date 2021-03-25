@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 const StyledButton = styled.button`
   border-radius: 500px;
-  border: 1px solid #616467;
+  border: 2px solid #616467;
   text-align: center;
   display: flex;
   align-items: center;
