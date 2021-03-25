@@ -1,8 +1,8 @@
 //import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import test from "../../assets/test/say_so.mp3"
-import Icons from "../UI/Icons"
-import Colors from "../UI/Colors"
+import Icons from "../ui/Icons"
+import Colors from "../ui/Colors"
 
 const StyledIcon = styled.img`
   width: 14px;
@@ -46,7 +46,7 @@ const onClick = (e) =>{
   }
 }
 
-function Player(){
+function PlayerFooter(){
   return(
     <div>
         <StyledControl>
@@ -64,4 +64,4 @@ function Player(){
   );
 }
 
-export default Player;
+export default PlayerFooter;

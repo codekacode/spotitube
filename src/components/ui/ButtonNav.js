@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import Icons from "../UI/Icons"
+import Icons from "./Icons"
 //import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Colors from "./Colors"
