@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
   display: flex;
+  height: 100vh;
   flex-direction: column;
   background: #000;
   flex: 0.2;

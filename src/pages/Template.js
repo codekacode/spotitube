@@ -1,41 +1,42 @@
-// import NavBar from "../Components/Contents/NavBar"
-// //import { css } from "@emotion/react";
-// import styled from "@emotion/styled";
-// import Colors from "../components/ui/Colors"
-// import Player from "../components/contents/PlayerFooter"
 
-// const StyledDiv = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 100vw;
-//   height: 100vh;
-// `;
-// const ContentDiv = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   background: ${Colors.black2};
-// `;
+//import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import Colors from "../components/ui/Colors"
+import Player from "../components/contents/PlayerFooter"
+import NavBar from "../components/contents/NavBar";
 
-// const PlayerDiv = styled.div`
-//   width: 100%;
-//   height: 96px;
-//   background: ${Colors.black3};
-// `;
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+`;
+const ContentDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background: ${Colors.black2};
+`;
 
-// function Template ({children}){
-//   return(
-//     <StyledDiv>
-//         <ContentDiv>
-//           <NavBar/>
-//           {children}
-//         </ContentDiv>
-//         <PlayerDiv>
-//           <Player />
-//         </PlayerDiv>
-//     </StyledDiv>
-//   )
-// }
+const PlayerDiv = styled.div`
+  width: 100%;
+  height: 96px;
+  background: ${Colors.black3};
+`;
 
-// export default Template
+function Template ({children}){
+  return(
+    <StyledDiv>
+        <ContentDiv>
+          <NavBar/>
+          {children}
+        </ContentDiv>
+        <PlayerDiv>
+          <Player />
+        </PlayerDiv>
+    </StyledDiv>
+  )
+}
+
+export default Template
