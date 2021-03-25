@@ -3,6 +3,11 @@
 // import styled from "@emotion/styled";
 // import Colors from "../components/ui/Colors"
 // import Player from "../components/contents/PlayerFooter"
+import NavBar from "../Components/Contents/NavBar"
+//import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import Colors from "../Components/UI/Colors"
+import Player from "../Components/Contents/Player"
 
 // const StyledDiv = styled.div`
 //   display: flex;
