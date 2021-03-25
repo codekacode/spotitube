@@ -1,10 +1,12 @@
-import ButtonNav from "../UI/ButtonNav"
+import ButtonNav from "../ui/ButtonNav"
 import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
   background: #000;
-  width: 224px;
-  height: 100%;
+  flex: 0.2;
 `;
 const List = styled.p`
   color: white;

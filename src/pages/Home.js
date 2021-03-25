@@ -1,4 +1,5 @@
-import CardPlaylist from "../components/CardPlaylist";
+
+import CardPlaylist from "../components/ui/CardPlaylist"
 import Template from "./Template"
 
 export default function Home() {
@@ -10,8 +11,10 @@ export default function Home() {
           <p className="title">Dale Flow</p>
           <p className="description">Lo mejor del regueton y flow actual</p> 
           <p className="followers">267,456 seguidores</p>
-        </div>      
+        </div> 
       </CardPlaylist>
+    
+             
     </Template>
   )
 }
