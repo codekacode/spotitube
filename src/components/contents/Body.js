@@ -1,14 +1,16 @@
 import styled from "@emotion/styled";
-import BodyInfo from "../ui/BodyInfo";
-import BodySongs from "../ui/BodySongs";
+// import BodyInfo from "../ui/BodyInfo";
+// import BodySongs from "../ui/BodySongs";
+import Playlist from "../ui/Playlist";
 import Header from "./Header";
 
 export default function Body() {
   return (
     <StyledBody>
       <Header />
-      <BodyInfo />
-      <BodySongs />
+      <Playlist />
+      {/* <BodyInfo />
+      <BodySongs /> */}
     </StyledBody>
   )
 }
