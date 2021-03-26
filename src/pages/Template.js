@@ -1,7 +1,7 @@
 //import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Colors from "../components/ui/Colors"
-import Player from "../components/contents/PlayerFooter"
+import Player from "../components/contents/Player"
 import NavBar from "../components/contents/NavBar";
 import Body from "../components/contents/Body";
 
