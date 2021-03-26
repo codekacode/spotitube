@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export default function BodyInfo() {
   return (
     <StyledBodyInfo>
-      <img className="image__body__info" src="https://dancettradio.files.wordpress.com/2013/09/artworks-000057515096-7ajzbl-original.jpg?w=768" />
+      <img className="image__body__info" alt="Playlist.img" src="https://dancettradio.files.wordpress.com/2013/09/artworks-000057515096-7ajzbl-original.jpg?w=768" />
       <div className="body__infoText">
         <strong>PLAYLIST</strong>
         <h2>Discover Weekly</h2>
