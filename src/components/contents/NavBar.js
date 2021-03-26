@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 function NavBar(){
   return(
     <StyledDiv>
-      <img className="navbar__logo" src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"/>
+      <img className="navbar__logo" alt="SpotifyLogo" src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"/>
       <ButtonNav label="Inicio" icon="home"/>
       <ButtonNav label="Buscar" icon="search_small"/>
       <ButtonNav label="Premium" icon="credit"/>
