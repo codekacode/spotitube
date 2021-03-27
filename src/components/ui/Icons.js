@@ -19,6 +19,8 @@ import next from "../../assets/icons/next.svg"
 import prev from "../../assets/icons/prev.svg"
 import stop from "../../assets/icons/stop.svg"
 
+
+
 const Icons = {
   next_page: chevron_right,
   prev_page: chevron_left,

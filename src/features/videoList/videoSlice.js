@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URI, KEY_API, TEST } from "../../app/config"
+import { TEST } from "../../app/config"
 
 export const fetchVideos = createAsyncThunk(
   "video/fetchVideos",
@@ -13,7 +13,7 @@ export const fetchVideos = createAsyncThunk(
       console.log(data);
       throw new Error("Something went wrong");
     }
-    return { products: data };
+    return { videos: data };
   }
 );
 
@@ -30,7 +30,7 @@ const videosSlice = createSlice({
     },
     [fetchVideos.fulfilled]: (state, action) => {
       state.status = "succeeded";
-      state.items = action.payload.products;
+      state.items = action.payload.videos;
     },
     [fetchVideos.rejected]: (state, action) => {
       state.status = "failed";

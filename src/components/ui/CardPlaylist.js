@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export default styled.li`
-  background: black;
+  background: white;
   padding: 10px;
   display: flex;
   flex-direction: column;
