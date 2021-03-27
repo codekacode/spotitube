@@ -52,17 +52,28 @@ const ProgressBar = styled.div`
 
 const PlayPause = (e) =>{
   const play = e.currentTarget
-  const audio = document.getElementById("audio")
+  const audio = document.getElementById("audio");
+  const play_song = document.getElementById("controls_song");
+  const id = document.getElementById("song_id");
+  const equal = document.getElementById("song_equal");
   if(audio.paused || audio.ended){
-    play.querySelector(".play").classList.toggle("hide")
-    play.querySelector(".pause").classList.toggle("hide")
     audio.play();
+    play.querySelector(".play").classList.toggle("hide");
+    play.querySelector(".pause").classList.toggle("hide");
+    play_song.querySelector(".play").classList.toggle("hide");
+    play_song.querySelector(".pause").classList.toggle("hide");
+    id.classList.toggle("hide");
+    equal.classList.toggle("hide");
   }else{
     audio.pause();
-    play.querySelector(".play").classList.toggle("hide")
-    play.querySelector(".pause").classList.toggle("hide")
+    play_song.querySelector(".play").classList.toggle("hide");
+    play_song.querySelector(".pause").classList.toggle("hide");
+    play.querySelector(".play").classList.toggle("hide");
+    play.querySelector(".pause").classList.toggle("hide");
+    id.classList.toggle("hide");
+    equal.classList.toggle("hide");
   }
-}
+} 
 
 const onInput= (e) => {
   const slider = e.currentTarget;
@@ -72,13 +83,14 @@ const onInput= (e) => {
 }
 
 function Player(){
+
   return(
     <StyledPlayer>
         <StyledControl>
           <StyledIcon alt="prev.svg" src={Icons.prev}/>
-          <StyledPlay id="controls" onClick={PlayPause}>
-            <StyledIcon alt="play_filled.svg" src={Icons.play_filled} className="play"/>
-            <StyledIcon alt="play_filled.svg" className="hide pause" src={Icons.stop}/>
+          <StyledPlay id="controls_footer" onClick={PlayPause}>
+            <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
+            <img alt="play_filled.svg" className="hide pause" src={Icons.stop}/>
           </StyledPlay>
           <StyledIcon alt="next.svg" src={Icons.next}/>
         </StyledControl>
@@ -123,7 +135,7 @@ function Player(){
                 </div>
           </div>
           <p>00:00</p>
-        </ProgressBar>  
+        </ProgressBar>
         <audio controls id="audio" className="hide">
           <source src={test} type="audio/mp3"/>
         </audio>
