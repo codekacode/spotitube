@@ -30,9 +30,9 @@ function Template ({children}){
           <NavBar/>
           <Body />
         </ContentDiv>
-        {/* <PlayerDiv>
+        <PlayerDiv>
           <Player />
-        </PlayerDiv> */}
+        </PlayerDiv>
     </StyledDiv>
   )
 }
