@@ -11,12 +11,9 @@ import Header from "./Header";
 export default function Body() {
   return (
     <StyledBody>
-      <Header />
       <Playlist />
       {/* <BodyInfo />
       <BodySongs /> */}
-      <CardPlay />
-      <MiniCardPlay />
       <PlaylistInfo />
       <PlaylistSongs />
     </StyledBody>

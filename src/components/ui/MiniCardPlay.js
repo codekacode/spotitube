@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 
-export default function MiniCardPlay() {
+export default function MiniCardPlay({playlist}) {
   return (
     <div className="card-wrapper">
       <StyleCard>
         <StyleCardImg>
-          <img src='https://images.unsplash.com/photo-1587151711096-23c51f92c920?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80'/>
+          <img src={playlist.img}/>
         </StyleCardImg>
         <StyleCardContent>
-          <h3>Playlist Name</h3>
+          <h3>{playlist.name}</h3>
         </StyleCardContent>
         <StyleIcon className="play-icon">
           <PlayIcon />
