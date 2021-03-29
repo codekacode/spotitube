@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
 
+@font-face {
+  font-family: 'Milliard Book';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Milliard Book'), url('./components/ui/fonts/Rene\ Bieder\ \ Milliard\ Book.woff') format('woff');
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
