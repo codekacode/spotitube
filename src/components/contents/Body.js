@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import Playlist from "../ui/Playlist";
 import CardPlay from "../ui/CardPlay";
 import MiniCardPlay from "../ui/MiniCardPlay";
+import PlaylistInfo from "../ui/PlaylistInfo";
+import PlaylistSongs from "../ui/PlaylistSongs";
 import Header from "./Header";
 
 export default function Body() {
@@ -15,6 +17,8 @@ export default function Body() {
       <BodySongs /> */}
       <CardPlay />
       <MiniCardPlay />
+      <PlaylistInfo />
+      <PlaylistSongs />
     </StyledBody>
   )
 }
