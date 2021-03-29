@@ -67,7 +67,7 @@ export default function Playlist(props) {
 
   return (
     <StyledPlaylist>
-      <h1>!Buenas tardes!</h1>
+      <h1 className="title">!Buenas tardes!</h1>
       <MiniWrapper>
         {dataPlaylists.map((playlist) => (
           <MiniCardPlay playlist={playlist}/>
@@ -93,20 +93,28 @@ const MiniWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
-  margin-bottom: 20px;
+  margin: 40px 0;
 `;
 
 const StyledPlaylist = styled.div`
   padding: 30px;
   background: #000;
+  & h3{
+    font-size: 26px;
+  }
+  & .title{
+    font-size: 34px;
+  }
 `;
 
 const YourPlaylist = styled.div`
   background: #000;
   display: flex;
+  margin: 30px 0
   
 `;
 const CurrentPlaylist = styled.div`
   background: #000;
   display: flex;
+  margin: 30px 0
 `;
