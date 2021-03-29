@@ -13,8 +13,6 @@ export default function Home() {
           <p className="followers">267,456 seguidores</p>
         </div> 
       </CardPlaylist>
-    
-             
     </Template>
   )
 }
