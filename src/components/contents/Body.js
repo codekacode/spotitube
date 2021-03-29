@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 // import BodyInfo from "../ui/BodyInfo";
 // import BodySongs from "../ui/BodySongs";
 import Playlist from "../ui/Playlist";
+import CardPlay from "../ui/CardPlay";
 import Header from "./Header";
 
 export default function Body() {
@@ -11,6 +12,7 @@ export default function Body() {
       <Playlist />
       {/* <BodyInfo />
       <BodySongs /> */}
+      <CardPlay />
     </StyledBody>
   )
 }
