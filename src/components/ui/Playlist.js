@@ -97,6 +97,7 @@ const MiniWrapper = styled.div`
 `;
 
 const StyledPlaylist = styled.div`
+  padding: 30px;
   background: #000;
 `;
 

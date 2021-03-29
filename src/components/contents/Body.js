@@ -21,7 +21,6 @@ export default function Body() {
 }
 
 const StyledBody = styled.div`
-  padding: 30px;
   width: 100%;
   height: 100vh;
   flex: 0.8;
