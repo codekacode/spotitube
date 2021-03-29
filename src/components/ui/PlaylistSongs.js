@@ -1,92 +1,46 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
-import Icons from "./Icons";
-//import Colors from "./Colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-//import {AiOutlineHeart} from 'react-icons/ai'
-import SongList from './SongList';
+import Song from './Song';
+import {WiTime3} from 'react-icons/wi'
 
-const PlayPause = (e) =>{
-  const play = e.currentTarget
-  const play_footer = document.getElementById("controls_footer");
-  const audio = document.getElementById("audio");
-  const id = document.getElementById("song_id");
-  const equal = document.getElementById("song_equal");
-  if(audio.paused || audio.ended){
-    audio.play();
-    play.querySelector(".play").classList.toggle("hide");
-    play.querySelector(".pause").classList.toggle("hide");
-    play_footer.querySelector(".play").classList.toggle("hide");
-    play_footer.querySelector(".pause").classList.toggle("hide");
-    id.classList.toggle("hide");
-    equal.classList.toggle("hide");
-  }else{
-    audio.pause();
-    play.querySelector(".play").classList.toggle("hide");
-    play.querySelector(".pause").classList.toggle("hide");
-    play_footer.querySelector(".play").classList.toggle("hide");
-    play_footer.querySelector(".pause").classList.toggle("hide");
-    id.classList.toggle("hide");
-    equal.classList.toggle("hide");
-  }
-}
 
 export default function PlaylistSongs() {
   return (
     <StyledSong>
-      <SongId>
-        <p id="song_id">1</p>
-        <img alt="equal.img" css={css`width: 14px; height: 14px;`} id="song_equal" src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" className="hide"/>
-        <StyledPlay id="controls_song" onClick={PlayPause}>
-          <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
-          <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
-        </StyledPlay>
-      </SongId>
-      <FavoriteIcon fontSize="large" css={css`width:16px; height:16px;`}/>
-      <MoreHorizIcon />
-      <SongList />
+      <ListHeadings>
+        <p>#</p>
+        <p>Título</p>
+        <p>Álbum</p>
+        <p>AGREGADO EL</p>
+        <HeadTime>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M7.999 3H6.999V7V8H7.999H9.999V7H7.999V3ZM7.5 0C3.358 0 0 3.358 0 7.5C0 11.642 3.358 15 7.5 15C11.642 15 15 11.642 15 7.5C15 3.358 11.642 0 7.5 0ZM7.5 14C3.916 14 1 11.084 1 7.5C1 3.916 3.916 1 7.5 1C11.084 1 14 3.916 14 7.5C14 11.084 11.084 14 7.5 14Z" fill="currentColor">
+            </path>
+          </svg>
+        </HeadTime>
+      </ListHeadings>
+      <Song/>
     </StyledSong>
   )
 }
 
 const StyledSong = styled.div`
-  margin: 30px 30px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  &:hover{
-    & #song_id, #song_equal{
-      display: none;
-    }
-    & #controls_song{
-      display: flex;
-    }
-  }
+  height: 100%;
+  width: 100%;
 `;
 
-const SongId = styled.div`
-  & #song_id{
-    text-align: center;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: normal;
-    text-transform: none;
-  }
-`;
-
-const StyledPlay = styled.div`
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  box-sizing: border-box;
-  & img {
-    width: 16px;
-    height: 16px;
-  }
+const ListHeadings = styled.div`
+  display: grid;
+  padding: 0 16px;
+  grid-gap: 16px;
+  grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px,1fr);
+`
+const HeadTime = styled.div`
+    display: flex;
+    padding-right: 32px;
+    justify-self: end;
+    -webkit-box-align: center;
+    align-items: center;
+    grid-column: last;
 `;
