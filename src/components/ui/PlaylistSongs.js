@@ -2,12 +2,10 @@
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
 import Song from './Song';
-import {WiTime3} from 'react-icons/wi'
-
 
 export default function PlaylistSongs() {
   return (
-    <StyledSong>
+    <StyledPlaylist>
       <ListHeadings>
         <p>#</p>
         <p>Título</p>
@@ -21,11 +19,11 @@ export default function PlaylistSongs() {
         </HeadTime>
       </ListHeadings>
       <Song/>
-    </StyledSong>
+    </StyledPlaylist>
   )
 }
 
-const StyledSong = styled.div`
+const StyledPlaylist = styled.div`
   height: 100%;
   width: 100%;
 `;
@@ -35,6 +33,15 @@ const ListHeadings = styled.div`
   padding: 0 16px;
   grid-gap: 16px;
   grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px,1fr);
+  & p {
+    font-family: 'Milliard Book';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    text-transform: none;
+    color: #b3b3b3;
+  }
 `
 const HeadTime = styled.div`
     display: flex;

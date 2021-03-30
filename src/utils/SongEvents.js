@@ -23,4 +23,13 @@ const PlayPause = (e) =>{
     }
   }
 
-export {PlayPause};  
+const ChangeColorHeart = (e) =>{
+  const svg = e.currentTarget;
+  const heart = svg.querySelector(".heart");
+  const fill_heart = svg.querySelector(".fill_heart")
+  svg.classList.toggle("svg_select")
+  heart.classList.toggle("hide")
+  fill_heart.classList.toggle("hide")
+}
+
+export {PlayPause, ChangeColorHeart};  
