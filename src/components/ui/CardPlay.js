@@ -1,22 +1,29 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
+import {useLocation, Link} from "react-router-dom";
 
-export default function CardPlay({playlist}) {
+export default function CardPlay({playlist_data}) {
+  const location = useLocation();
+  console.log(location)
   return (
-    <div className="card-wrapper">
-      <StyleCard>
-        <StyleCardImg>
-          <img src={playlist.img}/>
-        </StyleCardImg>
-        <StyleCardContent>
-          <h3>Playlist Name</h3>
-          <span>This is a playlist that has a variety of songs</span>
-        </StyleCardContent>
-        <StyleIcon className="play-icon">
-          <PlayIcon />
-        </StyleIcon>
-      </StyleCard>
-    </div>
+    <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
+      <div className="card-wrapper">
+        <StyleCard>
+          <StyleCardImg>
+            <img alt="card.img" src={playlist_data.img}/>
+          </StyleCardImg>
+          <StyleCardContent>
+            <h3>Playlist Name</h3>
+            <span>This is a playlist that has a variety of songs</span>
+          </StyleCardContent>
+          <StyleIcon className="play-icon">
+            <PlayIcon />
+          </StyleIcon>
+        </StyleCard>
+      </div>
+    </Link>
   )
 }
 
@@ -74,8 +81,8 @@ const StyleIcon = styled.div`
   margin-left: auto;
   opacity: 0;
   position: absolute;
-  right: 1.7rem;
-  bottom: 8.3rem;
+  right: 30px;
+  bottom: 130px;
   & svg {
     margin: auto;
     height: 15px;

@@ -10,8 +10,11 @@ const StyledPlayer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 90px;
+  width: 100vw;
   gap: 12px;
+  background-color: #181818;
+  border-top: 1px solid #282828;
 `;
 
 const StyledControl = styled.div`

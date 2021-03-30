@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
 import Playlist from "../ui/Playlist";
-import PlaylistInfo from "../ui/PlaylistInfo";
-import PlaylistSongs from "../ui/PlaylistSongs";
 
 export default function Body() {
   return (
     <StyledBody>
       <Playlist />
-      <PlaylistInfo />
-      <PlaylistSongs />
     </StyledBody>
   )
 }

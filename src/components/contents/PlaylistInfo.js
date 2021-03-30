@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Colors from "../ui/Colors"
 
 export default function PlaylistInfo({name, description, followers,img_url}) {
   return (
@@ -15,6 +16,9 @@ export default function PlaylistInfo({name, description, followers,img_url}) {
 
 const StyledPlaylistInfo = styled.div`
   display:flex;
+  color: ${Colors.white};
+  padding: 24px 32px 24px 32px;
+  background: linear-gradient(transparent,rgba(0,0,0,.5));
   & .body__infoText{
     flex: 1;
   }
