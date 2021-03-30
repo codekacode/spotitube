@@ -6,7 +6,7 @@ export default function CardPlay({playlist}) {
     <div className="card-wrapper">
       <StyleCard>
         <StyleCardImg>
-          <img src={playlist.img}/>
+          <img alt="card.img" src={playlist.img}/>
         </StyleCardImg>
         <StyleCardContent>
           <h3>Playlist Name</h3>
