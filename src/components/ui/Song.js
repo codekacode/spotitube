@@ -3,8 +3,6 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Icons from "./Icons";
 import X_Y from '../../assets/logo/X&Y.png'
-//import Colors from "./Colors";
-import {AiOutlineHeart} from 'react-icons/ai'
 import {PlayPause, ChangeColorHeart} from '../../utils/SongEvents'
 
 
