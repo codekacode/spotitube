@@ -1,38 +1,41 @@
 //import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import Colors from "../components/ui/Colors"
-import Player from "../components/contents/Player"
+import Player from "../components/contents/Player";
 import NavBar from "../components/contents/NavBar";
-import Body from "../components/contents/Body";
+
 
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 `;
 const ContentDiv = styled.div`
   display: flex;
-  flex-grow : 1;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 90px);
 `;
 
-const PlayerDiv = styled.div`
-  position: fixed;
-  bottom: 0;
+const PageDiv = styled.div`
+  display: flex;
   width: 100%;
-  height: 96px;
-  background: ${Colors.black3};
-`;
+  height: 100%;
+  overflow: auto;
+`
 
 function Template ({children}){
   return(
     <StyledDiv>
         <ContentDiv>
           <NavBar/>
-          <Body />
+          <PageDiv>
+            {children}
+          </PageDiv>
         </ContentDiv>
-        {/* <PlayerDiv>
-          <Player />
-        </PlayerDiv> */}
+        <Player/>
     </StyledDiv>
   )
 }

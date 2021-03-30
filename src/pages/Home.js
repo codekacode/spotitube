@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVideos } from "../features/videoList/videoSlice";
-import Template from "./Template"
-
+import Body from '../components/contents/Body'
 export default function Home() {
   const dispatch = useDispatch();
   const videos = useSelector((state) => state.videos.items);
@@ -11,7 +10,6 @@ export default function Home() {
     dispatch(fetchVideos("the Weekend"));
   }
   return (
-    <Template>
-    </Template>
+    <Body/>
   )
 }

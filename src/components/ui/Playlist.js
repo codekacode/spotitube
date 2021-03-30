@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import CardPlaylist from "./CardPlaylist";
 import MiniCardPlay from "./MiniCardPlay";
 import CardPlay from "./CardPlay";
 
