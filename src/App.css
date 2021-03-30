@@ -13,7 +13,10 @@
 
 .svg_select{
   opacity: 1 !important;
-  color: #00B050;
+}
+.svg_select path{
+  fill: #00B050 !important;
+  color: #00B050 !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
