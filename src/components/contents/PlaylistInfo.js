@@ -18,7 +18,7 @@ const StyledPlaylistInfo = styled.div`
   display:flex;
   color: ${Colors.white};
   padding: 24px 32px 24px 32px;
-  background: linear-gradient(transparent,rgba(0,0,0,.5));
+  background: linear-gradient(red,rgba(0,0,0,.5));
   & .body__infoText{
     flex: 1;
   }

@@ -1,13 +1,11 @@
 import styled from "@emotion/styled";
 import PlaylistInfo from '../components/contents/PlaylistInfo';
 import PlaylistSongs from '../components/contents/PlaylistSongs';
+import Header from '../components/contents/Headers/Header'
 
 const StyledDiv = styled.div`
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    height: 100vh;
 `;
 //const TestDiv = styled.div`
 //    height: 232px;
@@ -27,15 +25,25 @@ const ListOptions = styled.div`
     height: 104px;
     background-color: transparent;
 `;
+const PlayListContent = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+`;
 
 function PlayList (){
     return(
         <StyledDiv>
-            <PlaylistInfo />
-            <DivContent>
-                <ListOptions/>
-                <PlaylistSongs />
-            </DivContent>
+            <Header/>
+            <PlayListContent>
+                <PlaylistInfo />
+                <DivContent>
+                    <ListOptions/>
+                    <PlaylistSongs />
+                </DivContent>
+            </PlayListContent>
         </StyledDiv>
     );
 }

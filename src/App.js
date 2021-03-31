@@ -13,6 +13,7 @@ function App() {
       <Template>
         <Route exact path="/" component={Home} />
         <Route exact path="/playlist/:name" component={Playlist} />
+        <Route exact path="/collection/:name" component={Playlist} />
       </Template>
     </Router>
   );

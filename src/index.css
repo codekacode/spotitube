@@ -6,6 +6,14 @@
   font-weight: normal;
   src: local('Milliard Book'), url('./components/ui/fonts/Rene\ Bieder\ \ Milliard\ Book.woff') format('woff');
 }
+@font-face {
+  font-family: 'CircularStd-Black';
+  src: local('CircularStd-Black'), url('./components//ui//fonts/CircularStd-Black.otf') format('otf');
+}
+@font-face {
+  font-family: 'CircularStd-Book';
+  src: local('CircularStd-Book'), url('./components//ui//fonts/CircularStd-Book.otf') format('otf');
+}
 
 * {
   margin: 0;
