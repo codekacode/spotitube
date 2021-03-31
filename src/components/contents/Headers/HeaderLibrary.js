@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import Colors from '../../ui/Colors'
 import Header from "./Header"
 import {NavLink} from "react-router-dom";
 
