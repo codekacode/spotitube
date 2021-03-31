@@ -12,7 +12,8 @@ function App() {
       <Route exact path="/Login" component={Login}/>
       <Template>
         <Route exact path="/" component={Home} />
-        <Route exact path="/playlist" component={Playlist} />
+        <Route exact path="/playlist/:name" component={Playlist} />
+        <Route exact path="/collection/:name" component={Playlist} />
       </Template>
     </Router>
   );

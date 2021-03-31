@@ -2,7 +2,7 @@
 //import { css } from "@emotion/react";
 import styled from '@emotion/styled';
 import Colors from '../ui/Colors';
-import Song from './Song';
+import Song from '../ui/Song';
 
 export default function PlaylistSongs() {
   return (
@@ -20,20 +20,34 @@ export default function PlaylistSongs() {
         </HeadTime>
       </ListHeadings>
       <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
+      <Song/>
     </StyledPlaylist>
   )
 }
 
 const StyledPlaylist = styled.div`
-  height: 100%;
+  height: calc(100% - 104px);
   width: 100%;
+  padding: 32px;
 `;
 
 const ListHeadings = styled.div`
   display: grid;
+  height: 36px;
   padding: 0 16px;
   grid-gap: 16px;
   grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(120px,1fr);
+  border-bottom: 1px solid hsla(0,0%,100%,.1);
+  margin-bottom: 16px;
   & p {
     font-family: 'Milliard Book';
     font-size: 14px;
