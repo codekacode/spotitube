@@ -3,7 +3,6 @@ import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 
 export default function LikeCard() {
   return (
-    <div className="card-wrapper">
       <StyleCard>
         <StyleSongList>
           <span>Mis canciones</span>
@@ -16,18 +15,21 @@ export default function LikeCard() {
           <PlayIcon />
         </StyleIcon>
       </StyleCard>
-    </div>
   )
 }
 
 const StyleCard = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
   background: #582df1;
   color: #fff;
   background-image: linear-gradient(to bottom right, #582df1, #7057ec);
   border-radius: 8px;
   padding: 1.2rem;
-  height: 280px;
-  width: 350px;
+  height: 300px;
+  width: 450px;
   position: relative;
   cursor: pointer;
   &:hover {
