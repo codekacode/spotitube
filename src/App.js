@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Playlist from './pages/PlayList';
 import Template from './pages/Template'
+import Search from './pages/Search';
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
       <Template>
         <Route exact path="/" component={Home} />
         <Route exact path="/playlist" component={Playlist} />
+        <Route path='/search' component={Search} />
       </Template>
     </Router>
   );

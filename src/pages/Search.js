@@ -1,52 +1,57 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearch} from "../features/search/searchSlice";
 import styled from "@emotion/styled";
-import Colors from "../components/ui/Colors";
-import NavBar from "../components/contents/NavBar";
-import Body from "../components/contents/Body";
-import MiniCardPlay from "../components/ui/MiniCardPlay";
-import PlaylistInfo from "../components/ui/PlaylistInfo";
-import PlaylistSongs from "../components/ui/PlaylistSongs";
-import CardPlay from "../components/ui/CardPlay";
+import CardSong from "../components/ui/CardSong";
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 const ContentDiv = styled.div`
   display: flex;
   flex-grow : 1;
 `;
 
 const StyledContent = styled.div`
-  background-color: aqua;
-  width: 100%;
+  width: 100vw;
   margin: 20px;
+`;
+
+const InputContent = styled.div`
+  background-color: aliceblue;
+  height: 100px;
 `;
 
 function Search() {
 
+  const [query, setQuery] = useState("anime");
+  const dispatch = useDispatch();
+
   const videos = useSelector((state) => state.search.list);
-  
-  const items = videos.items;
-  console.log("andaaaa: ",items);
 
-const dispatch = useDispatch();
-const query = "billie";
+const handleSubmit = (e) => {
+  e.preventDefault();
+  dispatch(fetchSearch({query}));
+};
 
-// useEffect(()=> {
-// dispatch(fetchSearch(query))
-// },[dispatch]);
+useEffect(()=>{
+  dispatch(fetchSearch({query}));
+},[dispatch]);
 
   return (
     <StyledDiv>
         <ContentDiv>
-          <NavBar/>
           <StyledContent>
-            {items.map((item)=> 
-              <div>{item.snippet.title}</div>
-            )}
+          <InputContent>
+          <form id="search" onSubmit={handleSubmit}>
+              <input type="text" onSubmit={(e) => setQuery(e.target.value)} />
+            </form>
+            <button type="submit" form="search" >Search</button>
+          </InputContent>
+            {(!videos) ? <div> red</div> : (videos.items.map(item => <CardSong name={item.snippet.title}/> ))  
+            }
           </StyledContent>
         </ContentDiv>
     </StyledDiv>
