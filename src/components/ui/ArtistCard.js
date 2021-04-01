@@ -4,9 +4,10 @@ import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 import {useLocation, Link} from "react-router-dom";
 
-export default function CardPlay({playlist_data}) {
+export default function ArtistCard({playlist_data}) {
   const location = useLocation();
   console.log(location)
+  
   return (
     <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
       <div className="card-wrapper">
@@ -15,8 +16,8 @@ export default function CardPlay({playlist_data}) {
             <img alt="card.img" src={playlist_data.img}/>
           </StyleCardImg>
           <StyleCardContent>
-            <h3>Playlist Name</h3>
-            <span>This is a playlist that has a variety of songs</span>
+            <h3>Afrojack</h3>
+            <span>Artista</span>
           </StyleCardContent>
           <StyleIcon className="play-icon">
             <PlayIcon />
@@ -44,11 +45,13 @@ const StyleCard = styled.div`
 `;
 
 const StyleCardImg = styled.div`
-  height: 160px;
-  width: 210px;
+  height: 200px;
+  width: 200px;
   & img {
+    margin-left: 5px;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
   }
 `;
@@ -82,7 +85,7 @@ const StyleIcon = styled.div`
   opacity: 0;
   position: absolute;
   right: 30px;
-  bottom: 130px;
+  bottom: 100px;
   & svg {
     margin: auto;
     height: 15px;

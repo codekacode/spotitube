@@ -2,11 +2,15 @@ import styled from "@emotion/styled";
 import Playlist from "../ui/Playlist";
 import LikeCard from "../ui/LikeCard";
 
+import Header from "../contents/Headers/Header"
+
 export default function Body() {
   return (
     <StyledBody>
+      <Header/>
       <Playlist />
       <LikeCard />
+      
     </StyledBody>
   )
 }

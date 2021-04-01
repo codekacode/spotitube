@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import MiniCardPlay from "./MiniCardPlay";
 import CardPlay from "./CardPlay";
-
+import ArtistCard from "../ui/ArtistCard";
 export default function Playlist(props) {
 
   const dataPlaylists = [
@@ -75,15 +75,19 @@ export default function Playlist(props) {
       <h3>Your Playlist</h3>
       <YourPlaylist>
         {dataPlaylists.map((playlist) => (
-          <CardPlay playlist={playlist} />
+          <CardPlay playlist_data={playlist} />
         ))}
       </YourPlaylist>
       <h3>Escuchados Recientemente</h3>
       <CurrentPlaylist>
       {dataPlaylists.map((playlist) => (
-        <CardPlay playlist={playlist} />
+        <>
+        <CardPlay playlist_data={playlist} />
+        <ArtistCard playlist_data={playlist}  />
+        </>
       ))}
       </CurrentPlaylist>
+      
     </StyledPlaylist>
   )
 }

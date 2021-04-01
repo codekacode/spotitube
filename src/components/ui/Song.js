@@ -5,6 +5,7 @@ import Icons from "./Icons";
 import X_Y from '../../assets/logo/X&Y.png'
 import Colors from "./Colors";
 import {PlayPause, ChangeColorHeart} from '../../utils/SongEvents'
+//import {FcFilm} from 'react-icons/fc'
 
 
 export default function Song({name, img_url, artist_name, album_name, date, time}) {
