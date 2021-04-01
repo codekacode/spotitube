@@ -22,6 +22,7 @@ export default function LikeCard() {
 
 const StyleCard = styled.div`
   background: #582df1;
+  color: #fff;
   background-image: linear-gradient(to bottom right, #582df1, #7057ec);
   border-radius: 8px;
   padding: 1.2rem;

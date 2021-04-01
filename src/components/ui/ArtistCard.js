@@ -10,7 +10,7 @@ export default function ArtistCard({playlist_data}) {
   
   return (
     <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
-      <div className="card-wrapper">
+      <Wrapper>
         <StyleCard>
           <StyleCardImg>
             <img alt="card.img" src={playlist_data.img}/>
@@ -23,11 +23,16 @@ export default function ArtistCard({playlist_data}) {
             <PlayIcon />
           </StyleIcon>
         </StyleCard>
-      </div>
+      </Wrapper>
     </Link>
   )
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const StyleCard = styled.div`
   padding: 1.2rem;
   height: 300px;

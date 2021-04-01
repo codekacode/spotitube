@@ -9,8 +9,6 @@ export default function Body() {
     <StyledBody>
       <Header/>
       <Playlist />
-      <LikeCard />
-      
     </StyledBody>
   )
 }
