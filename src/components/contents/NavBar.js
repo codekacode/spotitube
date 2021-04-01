@@ -27,7 +27,7 @@ function NavBar(){
       <img className="navbar__logo" alt="SpotifyLogo" src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"/>
       <ButtonNav label="Inicio" icon="home" link_to="/"/>
       <ButtonNav label="Buscar" icon="search_small" link_to="/search"/>
-      <ButtonNav label="Premium" icon="credit" link_to="/credit"/>
+      <ButtonNav label="Tu biblioteca" icon="credit" link_to="/artist"/>
       <List>Listas de Reproduccion</List>
     </StyledDiv>
   );
