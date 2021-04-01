@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Input from "../form/Input";
 
-export default function Header() {
+export default function SearchBar() {
   return (
     <StyledHeader>
       <div className="header__left">
