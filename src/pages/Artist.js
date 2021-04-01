@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Header from '../components/contents/Headers/Header'
+import HeaderLibrary from "../components/contents/Headers/HeaderLibrary";
 import ArtistCard from "../components/ui/ArtistCard"
 import LikeCard from "../components/ui/LikeCard"
 
@@ -80,7 +80,7 @@ const dataPlaylists = [
 function Artist (){
     return(
         <StyledDiv>
-            <Header/>
+            <HeaderLibrary/>
             <PlayListContent>
             <LikeCard />
                 {dataPlaylists.map((playlist) => (
