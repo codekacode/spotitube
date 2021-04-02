@@ -1,21 +1,39 @@
+import { useDispatch, useSelector } from "react-redux";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import {Link} from "react-router-dom";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
+import { fetchPlaylist } from '../../features/playList/playlistSlice'
 
-export default function MiniCardPlay({playlist}) {
+
+
+
+function MiniCardPlay({playlist}) {
+  const dispatch = useDispatch();
+  const playlist_status = useSelector((state) => state.playlist.status);
+  if (playlist_status === "idle") {
+    dispatch(fetchPlaylist(playlist));
+  }
+  console.log(useSelector((state) => state.playlist.items))
+  
+  
   return (
-    <div className="card-wrapper">
-      <StyleCard>
-        <StyleCardImg>
-          <img alt="Card.img"src={playlist.img}/>
-        </StyleCardImg>
-        <StyleCardContent>
-          <h3>{playlist.name}</h3>
-        </StyleCardContent>
-        <StyleIcon className="play-icon">
-          <PlayIcon />
-        </StyleIcon>
-      </StyleCard>
-    </div>
+    <Link to={`playlist/${playlist.name}`} css={css`text-decoration: none; color:#FFFFFF;`}>
+      <div className="card-wrapper">
+        <StyleCard>
+          <StyleCardImg>
+            <img alt="Card.img" src={playlist.img}/>
+          </StyleCardImg>
+          <StyleCardContent>
+            <h3>{playlist.name}</h3>
+          </StyleCardContent>
+          <StyleIcon className="play-icon">
+            <PlayIcon />
+          </StyleIcon>
+        </StyleCard>
+      </div>
+    </Link>
   )
 }
 
@@ -84,3 +102,5 @@ const StyleIcon = styled.div`
     width: 15px
   }
 `;
+
+export default MiniCardPlay;

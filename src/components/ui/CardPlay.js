@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 import {Link} from "react-router-dom";
 
-export default function CardPlay({playlist_data}) {
+export default function CardPlay({playlist_data, link_to}) {
   return (
     <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
       <div className="card-wrapper">

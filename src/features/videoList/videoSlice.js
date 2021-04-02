@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { TEST } from "../../app/config"
+import { BASE_URI, KEY_API } from "../../app/config"
 
 export const fetchVideos = createAsyncThunk(
   "video/fetchVideos",
   async (Search) => {
-    const response = await fetch(`${TEST}`, {
+    const response = await fetch(`${BASE_URI + Search + KEY_API}&maxResults=25`, {
       method: "GET",
     });
 
