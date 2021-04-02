@@ -1,25 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {Link} from "react-router-dom";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
-import { fetchPlaylist } from '../../features/playList/playlistSlice'
+import { addListImg, addListName, cleanupPlayList, addPlayListId } from '../../features/playList/playlistSlice'
 
 
 
 
 function MiniCardPlay({playlist}) {
   const dispatch = useDispatch();
-  const playlist_status = useSelector((state) => state.playlist.status);
-  if (playlist_status === "idle") {
-    dispatch(fetchPlaylist(playlist));
+
+  const onClick = (playlist) =>{
+    dispatch(cleanupPlayList());
+    dispatch(addListImg(playlist.img))
+    dispatch(addListName(playlist.name));
+    dispatch(addPlayListId(playlist.list_id));
   }
-  console.log(useSelector((state) => state.playlist.items))
-  
-  
+
   return (
-    <Link to={`playlist/${playlist.name}`} css={css`text-decoration: none; color:#FFFFFF;`}>
+    <Link to={`playlist/${playlist.name}`} css={css`text-decoration: none; color:#FFFFFF;`} onClick={(e) => onClick(playlist)}>
       <div className="card-wrapper">
         <StyleCard>
           <StyleCardImg>

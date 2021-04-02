@@ -22,21 +22,25 @@ const playlistSlice = createSlice({
   initialState: {
     items: [],
     list_id: "",
+    list_name: "holamundo",
+    list_img: "",
     status: "idle",
     error: null,
   },
+
   reducers: {
-    cleanupPlayListId: (state) => {
-      state.items = [];
+    addListImg: (state, action) => {
+      state.list_img = action.payload;
+    },
+    addListName: (state, action) => {
+      state.list_name = action.payload;
+    },
+    cleanupPlayList: (state) => {
+      state.list_name = "";
+      state.list_id = "";
     },
     addPlayListId: (state, action) => {
-      state.items.push(action.payload.item);
-    },
-    removeItemFromCart: (state, action) => {
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.payload.item.id),
-      };
+      state.list_id = action.payload;
     },
   },
   extraReducers: {
@@ -53,5 +57,12 @@ const playlistSlice = createSlice({
     },
   },
 });
+
+export const{
+  addListImg,
+  addListName,
+  cleanupPlayList,
+  addPlayListId,
+} = playlistSlice.actions; 
 
 export default playlistSlice.reducer;
