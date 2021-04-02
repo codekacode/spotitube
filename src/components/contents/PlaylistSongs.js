@@ -23,7 +23,7 @@ export default function PlaylistSongs({song_data}) {
       {song_data.map((song) => {
         return(
           console.log(song.snippet),
-          <Song name={song.snippet.title} position={song.snippet.position} date={song.snippet.publishedAt}/>
+          <Song key={song.snippet.position} name={song.snippet.title} position={song.snippet.position} date={song.snippet.publishedAt}/>
         );
       })}
     </StyledPlaylist>

@@ -56,25 +56,15 @@ const ProgressBar = styled.div`
 const PlayPause = (e) =>{
   const play = e.currentTarget
   const audio = document.getElementById("audio");
-  const play_song = document.getElementById("controls_song");
-  const id = document.getElementById("song_id");
-  const equal = document.getElementById("song_equal");
   if(audio.paused || audio.ended){
     audio.play();
     play.querySelector(".play").classList.toggle("hide");
     play.querySelector(".pause").classList.toggle("hide");
-    play_song.querySelector(".play").classList.toggle("hide");
-    play_song.querySelector(".pause").classList.toggle("hide");
-    id.classList.toggle("hide");
-    equal.classList.toggle("hide");
   }else{
     audio.pause();
-    play_song.querySelector(".play").classList.toggle("hide");
-    play_song.querySelector(".pause").classList.toggle("hide");
     play.querySelector(".play").classList.toggle("hide");
     play.querySelector(".pause").classList.toggle("hide");
-    id.classList.toggle("hide");
-    equal.classList.toggle("hide");
+
   }
 } 
 

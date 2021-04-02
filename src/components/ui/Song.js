@@ -12,9 +12,9 @@ export default function Song({name, position, img_url, artist_name, album_name, 
   return (
     <SongListStyled>
       <SongId>
-        <p id="song_id">{position+1}</p>
-        <img alt="equal.img" css={css`width: 14px; height: 14px;`} id="song_equal" src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" className="hide"/>
-        <StyledPlay id="controls_song" onClick={PlayPause}>
+        <p id={`song_${position+1}`} className="song_id">{position+1}</p>
+        <img id={`equal_${position+1}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
+        <StyledPlay className="controls_song" id={`play_${position+1}`} onClick={(e) => PlayPause(position+1)}>
           <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
           <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
         </StyledPlay>
@@ -64,11 +64,11 @@ const SongListStyled = styled.div`
     cursor: pointer;
     background-color: hsla(0,0%, 40%,.3);
     &:hover{
-      & #song_id, #song_equal{
+      & .song_id, .song_equal{
         display: none;
         
       }
-      & #controls_song, #heart{
+      & .controls_song, #heart{
         display: flex;
         opacity: 1;
       }
@@ -80,7 +80,7 @@ const SongListStyled = styled.div`
 `;
 
 const SongId = styled.div`
-  & #song_id{
+  & .song_id{
     text-align: center;
     font-size: 16px;
     font-weight: 400;
