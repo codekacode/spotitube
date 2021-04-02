@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 
-export default function CardSong({name}) {
+export default function CardSong({idsong}) {
   return (
     <div className="card-wrapper">
       <StyleCard>
-        <StyleCardImg>
+        {/* <StyleCardImg>
           <img src='https://images.unsplash.com/photo-1587151711096-23c51f92c920?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80'/>
         </StyleCardImg>
         <StyleCardContent>
           <h3>{name}</h3>
           <span>This is a playlist that has a variety of songs</span>
-        </StyleCardContent>
+        </StyleCardContent> */}
+        <iframe width="200" height="150" scr={`http://www.youtube.com/embed/${idsong}`} frameBorder="0" allowFullScreen ></iframe>
         <StyleIcon className="play-icon">
           <PlayIcon />
         </StyleIcon>
