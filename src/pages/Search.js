@@ -4,6 +4,7 @@ import { fetchSearch} from "../features/search/searchSlice";
 import styled from "@emotion/styled";
 import CardSong from "../components/ui/CardSong";
 import Iframe from "react-iframe";
+import HeaderSearch from "../components/contents/Headers/HeaderSearch";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -51,7 +52,7 @@ function Search() {
 
 //------------------------------------
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("trend");
   const dispatch = useDispatch();
 
   const videos = useSelector((state) => state.search.list);
@@ -75,6 +76,7 @@ const handleSubmit = (e) => {
 // }, [searchSong]);
 
 useEffect(()=>{
+  
   let timerID;
   //dispatch(fetchSearch({query}));
   console.log(query)
@@ -95,9 +97,10 @@ useEffect(()=>{
               <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
             </form>
             <button type="submit" form="search" >Search</button>
+            <HeaderSearch type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
           </InputContent>
           <StyledContent>
-            {(!videos) ? <div> red</div> : (videos.items.map(item => <Iframe width="200" height="150" url={`http://www.youtube.com/embed/${item.id.videoId}`} /> ))  // <div> blue</div> 
+            {(!videos) ? <div> red</div> : <div>blue</div>// (videos.items.map(item => <Iframe width="200" height="150" url={`http://www.youtube.com/embed/${item.id.videoId}`} /> ))  // <div> blue</div> 
             }
           </StyledContent>
         </ContentDiv>
