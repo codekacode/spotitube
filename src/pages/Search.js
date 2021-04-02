@@ -100,7 +100,7 @@ useEffect(()=>{
             <HeaderSearch type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
           </InputContent>
           <StyledContent>
-            {(!videos) ? <div> red</div> : <div>blue</div>// (videos.items.map(item => <Iframe width="200" height="150" url={`http://www.youtube.com/embed/${item.id.videoId}`} /> ))  // <div> blue</div> 
+            {(!videos) ? <div> red</div> :(videos.items.map(item => <Iframe width="200" height="150" url={`http://www.youtube.com/embed/${item.id.videoId}`} /> ))  // <div> blue</div> 
             }
           </StyledContent>
         </ContentDiv>
