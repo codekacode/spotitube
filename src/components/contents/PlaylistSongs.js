@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import Colors from '../ui/Colors';
 import Song from '../ui/Song';
 
-export default function PlaylistSongs() {
+export default function PlaylistSongs({song_data}) {
   return (
     <StyledPlaylist>
       <ListHeadings>
@@ -19,17 +19,12 @@ export default function PlaylistSongs() {
           </svg>
         </HeadTime>
       </ListHeadings>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
-      <Song/>
+      {console.log(song_data)}
+      {song_data.map((song) => {
+        return(
+          <Song key={song.snippet.position} name={song.snippet.title} position={song.snippet.position} date={song.snippet.publishedAt} video_id={song.snippet.resourceId.videoId}/>
+        );
+      })}
     </StyledPlaylist>
   )
 }

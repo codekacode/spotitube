@@ -3,8 +3,11 @@ import Playlist from "../ui/Playlist";
 import LikeCard from "../ui/LikeCard";
 
 import Header from "../contents/Headers/Header"
+import React from 'react';
+//import YouTube from 'react-youtube';
 
 export default function Body() {
+  
   return (
     <StyledBody>
       <Header/>
@@ -20,5 +23,8 @@ const StyledBody = styled.div`
   background: linear-gradient(transparent, rgba(0, 0, 0, 1));
   background-color: rgb(91, 87, 115);
   color: #fff;
+  & #test{
+    
+  }
 `;
 

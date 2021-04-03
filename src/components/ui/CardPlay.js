@@ -2,11 +2,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
-import {useLocation, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export default function CardPlay({playlist_data}) {
-  const location = useLocation();
-  console.log(location)
+export default function CardPlay({playlist_data, link_to}) {
   return (
     <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
       <div className="card-wrapper">

@@ -1,7 +1,42 @@
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPlaylist } from '../features/playList/playlistSlice'
 import styled from "@emotion/styled";
 import PlaylistInfo from '../components/contents/PlaylistInfo';
 import PlaylistSongs from '../components/contents/PlaylistSongs';
 import Header from '../components/contents/Headers/Header'
+
+function PlayList (){
+    const dispatch = useDispatch();
+    const list = useSelector((state) => state.playlist.items);
+    const list_id = useSelector((state) => state.playlist.list_id);
+    const list_name = useSelector((state) => state.playlist.list_name);
+    const list_img = useSelector((state) => state.playlist.list_img);
+    const status = useSelector((state) => state.playlist.status);
+
+    if (status === "idle") {
+        dispatch(fetchPlaylist(list_id));
+    }
+
+    return(
+        
+        <StyledDiv>
+            <Header/>
+            {status === "loading" && <p>Loading...</p>}
+            {status === "failed" && (<p>failed</p>)}
+            {status === "succeeded" && (
+                <PlayListContent>
+                    <PlaylistInfo name={list_name} img_url={list_img}/>
+                    <DivContent>
+                        <ListOptions/>
+                        <PlaylistSongs song_data={list.items} />
+                    </DivContent>
+                </PlayListContent>
+            )}
+        </StyledDiv>
+    );
+}
+
+export default PlayList;
 
 const StyledDiv = styled.div`
     width: 100%;
@@ -32,20 +67,3 @@ const PlayListContent = styled.div`
     width: 100%;
     height: 100%;
 `;
-
-function PlayList (){
-    return(
-        <StyledDiv>
-            <Header/>
-            <PlayListContent>
-                <PlaylistInfo />
-                <DivContent>
-                    <ListOptions/>
-                    <PlaylistSongs />
-                </DivContent>
-            </PlayListContent>
-        </StyledDiv>
-    );
-}
-
-export default PlayList;
