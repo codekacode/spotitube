@@ -9,12 +9,14 @@ import Template from './pages/Template'
 import Artist from './pages/Artist'
 import PlaylistBiblio from './pages/PlaylistBiblio'
 import Albums from './pages/Albums';
+import Search from './pages/Search';
 
 function App() {
   return (
     <Router>
       <Route exact path="/Login" component={Login}/>
       <Template>
+        <Route path='/search' component={Search} />
         <Route exact path="/" component={Home} />
         <Route exact path="/artist" component={Artist} />
         <Route exact path="/playlist-biblio" component={PlaylistBiblio} />
