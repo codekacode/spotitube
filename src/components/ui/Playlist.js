@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import MiniCardPlay from "./MiniCardPlay";
 import CardPlay from "./CardPlay";
 import dataPlaylists from '../../app/defaultLists'
+import ArtistCard from "../ui/ArtistCard";
 
 export default function Playlist(props) {
 
@@ -25,6 +26,7 @@ export default function Playlist(props) {
         <CardPlay playlist_data={playlist} />
       ))}
       </CurrentPlaylist>
+      
     </StyledPlaylist>
   )
 }
