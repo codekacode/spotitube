@@ -11,7 +11,6 @@ import { addListImg, addListName, cleanupPlayList, addPlayListId } from '../../f
 
 function MiniCardPlay({playlist}) {
   const dispatch = useDispatch();
-
   const onClick = (playlist) =>{
     dispatch(cleanupPlayList());
     dispatch(addListImg(playlist.img))

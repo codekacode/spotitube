@@ -1,12 +1,11 @@
 function PlayPause (id_song){
-    const play = document.getElementById(`play_${id_song}`)
+    const play = document.getElementById(`play_${id_song}`);
     const play_footer = document.getElementById("controls_footer");
     const audio = document.getElementById("audio");
     const id = document.getElementById(`song_${id_song}`);
     const equal = document.getElementById(`equal_${id_song}`);
-    console.log(play, id, equal)
     if(audio.paused || audio.ended){
-      audio.play();
+      audio.play(); 
       play.querySelector(".play").classList.toggle("hide");
       play.querySelector(".pause").classList.toggle("hide");
       play_footer.querySelector(".play").classList.toggle("hide");

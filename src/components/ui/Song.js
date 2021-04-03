@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -5,16 +6,24 @@ import Icons from "./Icons";
 import X_Y from '../../assets/logo/X&Y.png'
 import Colors from "./Colors";
 import {PlayPause, ChangeColorHeart} from '../../utils/SongEvents'
+import { addSongId } from "../../features/player/playerSlice";
 //import {FcFilm} from 'react-icons/fc'
 
 
-export default function Song({name, position, img_url, artist_name, album_name, date, time}) {
+export default function Song({name, position, img_url, artist_name, album_name, date, time, video_id}) {
+  const dispatch = useDispatch();
+  const song_id = useSelector((state) => state.player.song_id);
+  function ChangeSongId(video_id){
+    if(song_id !== video_id){
+      dispatch(addSongId(video_id))
+    }
+  }
   return (
     <SongListStyled>
       <SongId>
         <p id={`song_${position+1}`} className="song_id">{position+1}</p>
         <img id={`equal_${position+1}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
-        <StyledPlay className="controls_song" id={`play_${position+1}`} onClick={(e) => PlayPause(position+1)}>
+        <StyledPlay className="controls_song" id={`play_${position+1}`} onClick={(e) => {ChangeSongId(video_id)}}>
           <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
           <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
         </StyledPlay>

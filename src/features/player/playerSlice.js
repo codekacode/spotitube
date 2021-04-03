@@ -4,7 +4,7 @@ const playerSlice = createSlice({
     name: "player",
     initialState: {
       items: [],
-      song_id: "",
+      song_id: "4wv8Oz_j438",
       status: "idle",
       error: null,
     },
