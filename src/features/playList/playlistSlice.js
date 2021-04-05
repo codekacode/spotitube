@@ -4,7 +4,7 @@ import { BASE_URI_PLAYLIST, KEY_API } from "../../app/config"
 export const fetchPlaylist = createAsyncThunk(
   "video/fetchPlaylist",
   async (Search_id) => {
-    const response = await fetch(`${BASE_URI_PLAYLIST + Search_id + KEY_API}&maxResults=20` , {
+    const response = await fetch(`${BASE_URI_PLAYLIST + Search_id + KEY_API}&maxResults=30` , {
       method: "GET",   
     });
 
@@ -36,8 +36,11 @@ const playlistSlice = createSlice({
       state.list_name = action.payload;
     },
     cleanupPlayList: (state) => {
-      state.list_name = "";
+      state.items= [];
       state.list_id = "";
+      state.list_name = "";
+      state.list_img = "";
+      state.status = "idle";
     },
     addPlayListId: (state, action) => {
       state.list_id = action.payload;

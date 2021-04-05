@@ -6,13 +6,9 @@ import {Link} from "react-router-dom";
 import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 import { addListImg, addListName, cleanupPlayList, addPlayListId } from '../../features/playList/playlistSlice'
 
-
-
-
 function MiniCardPlay({playlist}) {
   const dispatch = useDispatch();
   const onClick = (playlist) =>{
-    dispatch(cleanupPlayList());
     dispatch(addListImg(playlist.img))
     dispatch(addListName(playlist.name));
     dispatch(addPlayListId(playlist.list_id));

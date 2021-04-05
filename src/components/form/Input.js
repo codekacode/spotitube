@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import {BiSearch} from 'react-icons/bi';
 
 export default function Input({placeholder}) {
   return (

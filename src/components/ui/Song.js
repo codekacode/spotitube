@@ -18,12 +18,29 @@ export default function Song({name, position, img_url, artist_name, album_name, 
       dispatch(addSongId(video_id))
     }
   }
+
+  function RenderIdEqual(a, b){
+    if(song_id === a){
+      return(
+        <>
+          <p id={`song_${video_id}`} className="song_id" css={css`color: #00B050 !important;`}>{b+1}</p>
+        </>
+      )
+    }else{
+      return(
+        <>
+          <p id={`song_${video_id}`} className="song_id">{b+1}</p>
+        </>
+      )
+    }
+  }
+  
   return (
     <SongListStyled>
       <SongId>
-        <p id={`song_${position+1}`} className="song_id">{position+1}</p>
-        <img id={`equal_${position+1}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
-        <StyledPlay className="controls_song" id={`play_${position+1}`} onClick={(e) => {ChangeSongId(video_id)}}>
+          {RenderIdEqual(video_id , position)}
+          <img id={`equal_${video_id}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
+        <StyledPlay className="controls_song" id={`play_${video_id}`} onClick={(e) => {ChangeSongId(video_id)}}>
           <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
           <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
         </StyledPlay>
@@ -118,6 +135,7 @@ const SongInfo = styled.div`
   flex-direction: row;
   gap: 16px;
   & #song_name{
+    max-width: 280px;
     font-family: 'Milliard Book';
     font-size: 16px;
     font-weight: 400;
@@ -125,6 +143,9 @@ const SongInfo = styled.div`
     letter-spacing: normal;
     text-transform: none;
     color: #FFFFFF;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 
