@@ -4,19 +4,21 @@ const playerSlice = createSlice({
     name: "player",
     initialState: {
       items: [],
-      song_status: false,
+      song_status: "",
       song_id: "",
       status: "idle",
       error: null,
     },
   
     reducers: {
-      cleanupPlayer: (state) => {
-        state.song_id = "";
+      cleanStatus:(state) => {
         state.song_status = "";
       },
-      setStatusSong: (state, action) =>{
-        state.song_status = action.playload;
+      cleanupPlayer: (state) => {
+        state.song_id = "";
+      },
+      setStatusSong: (state, action) => {
+        state.song_status = action.payload;
       },
       addSongId: (state, action) => {
         state.song_id = action.payload;
@@ -25,6 +27,7 @@ const playerSlice = createSlice({
   });
   
   export const{
+    cleanStatus,
     cleanupPlayer,
     setStatusSong,
     addSongId,

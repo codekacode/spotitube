@@ -5,7 +5,6 @@ import Body from '../components/contents/Body'
 
 export default function Home() {
  const dispatch = useDispatch();
- const videos = useSelector((state) => state.videos.items);
  const status = useSelector((state) => state.videos.status);
  dispatch(cleanupPlayList());
 

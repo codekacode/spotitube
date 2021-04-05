@@ -55,10 +55,7 @@ const DivContent = styled.div`
     background: #121212;
     isolation: isolate;
 `;
-const ListOptions = styled.div`
-    height: 104px;
-    background-color: transparent;
-`;
+
 const PlayListContent = styled.div`
     display: flex;
     width: 100%;

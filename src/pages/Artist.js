@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import HeaderLibrary from "../components/contents/Headers/HeaderLibrary";
 import ArtistCard from "../components/ui/ArtistCard"
-import LikeCard from "../components/ui/LikeCard"
 
 const StyledDiv = styled.div`
     width: 100%;

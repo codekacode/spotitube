@@ -13,8 +13,6 @@ function Player(){
   const dispatch = useDispatch();
   const [ queryVideo, setQueryVideo] = useState();
   const song_id = useSelector((state) => state.player.song_id);
-  const song_status = useSelector((state) => state.player.song_status);
-  console.log(song_status)
   const opts = {
     height: '390',
     width: '640',
@@ -22,16 +20,23 @@ function Player(){
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
-  };
+  }
 
   const onReady= (e) => {
     setQueryVideo(e.target);
-    e.target.pauseVideo();
+  }
+
+  const onState = (e) =>{
+    if(e.data === 1){
+      dispatch(setStatusSong("1"))
+    }else{
+      dispatch(setStatusSong("2"))
+    }
   }
 
   return(
     <StyledPlayer>
-        <YouTube containerClassName={"video_audio"} videoId={song_id} opts={opts} id={"test"} onReady={onReady} />
+        <YouTube containerClassName={"video_audio"} videoId={song_id} opts={opts} id={"test"} onReady={onReady} onStateChange={onState} />
         <StyledControl>
           <StyledIcon alt="prev.svg" src={Icons.prev}/>
           <StyledPlay id="controls_footer" onClick={(e) => PlayPause(e, queryVideo)}>
@@ -139,7 +144,6 @@ const ProgressBar = styled.div`
 
 function PlayPause(e, queryVideo){
   const video_state = queryVideo.getPlayerState();
-  console.log(video_state)
   if(video_state===2 || video_state===0){
     queryVideo.playVideo();
   }else{
