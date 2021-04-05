@@ -9,8 +9,8 @@ export default function PlaylistSongs({song_data}) {
     <StyledPlaylist>
       <ListHeadings>
         <p>#</p>
-        <p>Título</p>
-        <p>Álbum</p>
+        <p>TÍTULO</p>
+        <p>ARTISTA</p>
         <p>AGREGADO EL</p>
         <HeadTime>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -19,10 +19,16 @@ export default function PlaylistSongs({song_data}) {
           </svg>
         </HeadTime>
       </ListHeadings>
-      {console.log(song_data)}
       {song_data.map((song) => {
         return(
-          <Song key={song.snippet.position} name={song.snippet.title} position={song.snippet.position} date={song.snippet.publishedAt} video_id={song.snippet.resourceId.videoId}/>
+          <Song key={song.snippet.position} 
+          name={song.snippet.title} 
+          position={song.snippet.position} 
+          img_url={song.snippet.thumbnails.high.url}
+          date={song.contentDetails.videoPublishedAt} 
+          artist_name={song.snippet.videoOwnerChannelTitle}
+          album_name={song.snippet.videoOwnerChannelTitle} 
+          video_id={song.snippet.resourceId.videoId}/>
         );
       })}
     </StyledPlaylist>

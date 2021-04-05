@@ -14,14 +14,10 @@ export default function Body() {
 }
 
 const StyledBody = styled.div`
-  width: 100%;
-  height: 100vh;
-  flex: 0.8;
+  width: calc(100vw - 232px);
+  height: 100%;
   background: linear-gradient(transparent, rgba(0, 0, 0, 1));
   background-color: rgb(91, 87, 115);
   color: #fff;
-  & #test{
-    
-  }
 `;
 

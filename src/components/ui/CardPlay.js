@@ -1,20 +1,28 @@
+import { useDispatch } from "react-redux";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
 import {Link} from "react-router-dom";
+import { ReactComponent as PlayIcon } from '../../svgs/playIcon.svg'
+import { addListImg, addListName, addPlayListId } from '../../features/playList/playlistSlice'
 
 export default function CardPlay({playlist_data, link_to}) {
+  const dispatch = useDispatch();
+  const onClick = (playlist) =>{
+    dispatch(addListImg(playlist.img))
+    dispatch(addListName(playlist.name));
+    dispatch(addPlayListId(playlist.list_id));
+  }
   return (
-    <Link to={`playlist/rock`} css={css`text-decoration: none; color:#FFFFFF;`}>
+    <Link to={`playlist/${playlist_data.name}`} css={css`text-decoration: none; color:#FFFFFF;`} onClick={(e) => onClick(playlist_data)}>
       <div className="card-wrapper">
         <StyleCard>
           <StyleCardImg>
             <img alt="card.img" src={playlist_data.img}/>
           </StyleCardImg>
           <StyleCardContent>
-            <h3>Playlist Name</h3>
-            <span>This is a playlist that has a variety of songs</span>
+            <h3>{playlist_data.name}</h3>
+            <span>{playlist_data.desc}</span>
           </StyleCardContent>
           <StyleIcon className="play-icon">
             <PlayIcon />

@@ -12,7 +12,7 @@ function PlayList (){
     const list_name = useSelector((state) => state.playlist.list_name);
     const list_img = useSelector((state) => state.playlist.list_img);
     const status = useSelector((state) => state.playlist.status);
-    console.log(list_id)
+    console.log(list)
     if (status === "idle") {
         dispatch(fetchPlaylist(list_id));
     }
@@ -25,7 +25,7 @@ function PlayList (){
             {status === "failed" && (<p>failed</p>)}
             {status === "succeeded" && (
                 <PlayListContent>
-                    <PlaylistInfo name={list_name} img_url={list_img}/>
+                    <PlaylistInfo name={list_name} img_url={list_img} />
                     <DivContent>
                         <PlaylistSongs song_data={list.items} />
                     </DivContent>
