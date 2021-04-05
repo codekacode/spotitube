@@ -8,14 +8,51 @@ import { DateFormat, ChangeSongId, ChangeSongStatus, ChangeColorHeart } from '..
 import RenderIdEqual from '../ui/Song/songId';
 import RenderSongName from '../ui/Song/songName';
 import RenderSongControls from '../ui/Song/songControls';
+import YouTube from 'react-youtube';
 import {FcFilm} from 'react-icons/fc'
+import {AiOutlineCloseCircle} from 'react-icons/ai'
+import { useState } from "react";
 
 
 export default function Song({name, position, img_url, artist_name, album_name, date, time, video_id}) {
+  const [showVideo, setShowVideo] = useState(false)
   const dispatch = useDispatch();
   const song_id = useSelector((state) => state.player.song_id);
   const song_status = useSelector((state) => state.player.song_status);
   
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  }
+
+  const onClickFilm = (e) => {
+    setShowVideo(true);
+  }
+  function ShowIframe (a){
+    if(a){
+      return(
+        <>
+          <AiOutlineCloseCircle onClick={(e)=>{setShowVideo(false)}} css={css`
+            fill: #FFFFFF;
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 20px;
+            height: 20px;
+            z-index: 1;
+            & path{
+              cursor: none;
+            }
+          `}/>
+          <YouTube containerClassName={`video_audio video_${video_id}`} videoId={video_id} opts={opts}  onReady={(e)=>{e.target.pauseVideo()}} />
+        </>
+      )
+    }
+  }
   return (
     <SongListStyled>
       <SongId>
@@ -41,7 +78,8 @@ export default function Song({name, position, img_url, artist_name, album_name, 
         <FcFilm height="16" width="16" css={css`
         & path{
           fill: #FFFFFF;
-        }`}/>
+        }`} onClick={onClickFilm}/>
+        {ShowIframe(showVideo)}
         <svg role="img" height="16" width="16" viewBox="0 0 16 16" className="Svg-ulyrgf-0 hJgLcF">
           <path d="M2 6.5a1.5 1.5 0 10-.001 2.999A1.5 1.5 0 002 6.5zm6 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6 0a1.5 1.5 0 10-.001 2.999A1.5 1.5 0 0014 6.5z" fill={Colors.white}>
           </path>
@@ -60,6 +98,17 @@ const SongListStyled = styled.div`
   border: 1px solid transparent;
   border-radius: 4px;
   align-items: center;
+  & .video_audio{
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 17.5%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 232px);
+    height: calc(100vh - 90px);
+  }
   & p{
     font-size: 14px;
     font-weight: 400;
