@@ -1,18 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { setStatusSong } from "../../features/player/playerSlice"
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import YouTube from 'react-youtube';
-import {setStatusSong} from "../../features/player/playerSlice"
+import PlayPauseRender from '../ui/Player/playerPlay';
+import onPlayPause from '../../utils/PlayerEvents'
 import Icons from "../ui/Icons"
 import Colors from "../ui/Colors"
 
 
 function Player(){
   const dispatch = useDispatch();
-  const [ queryVideo, setQueryVideo] = useState();
+  const [ queryVideo, setQueryVideo ] = useState();
   const song_id = useSelector((state) => state.player.song_id);
+  const song_status = useSelector((state) => state.player.song_status);
+  
   const opts = {
     height: '390',
     width: '640',
@@ -22,8 +26,15 @@ function Player(){
     },
   }
 
+  if(song_status === "1" && queryVideo != null){
+    queryVideo.playVideo();
+  }else if(song_status === "2" && queryVideo != null){
+    queryVideo.pauseVideo();
+  }
+
   const onReady= (e) => {
     setQueryVideo(e.target);
+    e.target.pauseVideo();
   }
 
   const onState = (e) =>{
@@ -39,9 +50,8 @@ function Player(){
         <YouTube containerClassName={"video_audio"} videoId={song_id} opts={opts} id={"test"} onReady={onReady} onStateChange={onState} />
         <StyledControl>
           <StyledIcon alt="prev.svg" src={Icons.prev}/>
-          <StyledPlay id="controls_footer" onClick={(e) => PlayPause(e, queryVideo)}>
-            <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
-            <img alt="play_filled.svg" className="hide pause" src={Icons.stop}/>
+          <StyledPlay id="controls_footer" onClick={(e) => onPlayPause(e, queryVideo)}>
+            {PlayPauseRender(song_status)}
           </StyledPlay>
           <StyledIcon alt="next.svg" src={Icons.next}/>
         </StyledControl>
@@ -142,14 +152,6 @@ const ProgressBar = styled.div`
   flex-direction: row;
 `;
 
-function PlayPause(e, queryVideo){
-  const video_state = queryVideo.getPlayerState();
-  if(video_state===2 || video_state===0){
-    queryVideo.playVideo();
-  }else{
-    queryVideo.pauseVideo();
-  }
-} 
 
 const onInput= (e) => {
   const slider = e.currentTarget;

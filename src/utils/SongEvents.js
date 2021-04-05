@@ -1,27 +1,18 @@
-function PlayPause (id_song){
-    const play = document.getElementById(`play_${id_song}`);
-    const play_footer = document.getElementById("controls_footer");
-    const audio = document.getElementById("audio");
-    const id = document.getElementById(`song_${id_song}`);
-    const equal = document.getElementById(`equal_${id_song}`);
-    if(audio.paused || audio.ended){
-      audio.play(); 
-      play.querySelector(".play").classList.toggle("hide");
-      play.querySelector(".pause").classList.toggle("hide");
-      play_footer.querySelector(".play").classList.toggle("hide");
-      play_footer.querySelector(".pause").classList.toggle("hide");
-      id.classList.toggle("hide");
-      equal.classList.toggle("hide");
-    }else{
-      audio.pause();
-      play.querySelector(".play").classList.toggle("hide");
-      play.querySelector(".pause").classList.toggle("hide");
-      play_footer.querySelector(".play").classList.toggle("hide");
-      play_footer.querySelector(".pause").classList.toggle("hide");
-      id.classList.toggle("hide");
-        equal.classList.toggle("hide");
-    }
+import {setStatusSong, addSongId} from '../features/player/playerSlice'
+
+function ChangeSongId (dispatch, song_id, video_id){
+  if(song_id !== video_id){
+    dispatch(addSongId(video_id))
   }
+}
+
+function ChangeSongStatus (dispatch, song_status) {
+  if(song_status === "1"){
+    dispatch(setStatusSong("2"))
+  }else{
+    dispatch(setStatusSong("1"))
+  }
+}
 
 const ChangeColorHeart = (e) =>{
   const svg = e.currentTarget;
@@ -32,4 +23,4 @@ const ChangeColorHeart = (e) =>{
   fill_heart.classList.toggle("hide")
 }
 
-export {PlayPause, ChangeColorHeart};  
+export {ChangeSongId, ChangeSongStatus, ChangeColorHeart};  
