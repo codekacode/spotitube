@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import Icons from "./Icons";
 import X_Y from '../../assets/logo/X&Y.png'
 import Colors from "./Colors";
-import {PlayPause, ChangeColorHeart} from '../../utils/SongEvents'
+import { ChangeColorHeart } from '../../utils/SongEvents'
 import { addSongId } from "../../features/player/playerSlice";
 //import {FcFilm} from 'react-icons/fc'
 
@@ -13,25 +13,71 @@ import { addSongId } from "../../features/player/playerSlice";
 export default function Song({name, position, img_url, artist_name, album_name, date, time, video_id}) {
   const dispatch = useDispatch();
   const song_id = useSelector((state) => state.player.song_id);
+  const song_status = useSelector((state) => state.player.song_status);
+
   function ChangeSongId(video_id){
     if(song_id !== video_id){
       dispatch(addSongId(video_id))
     }
   }
+
+  function RenderIdEqual(a, b){
+    if(song_id === a && song_status === "1"){
+      return(<>
+        <p id={`song_${video_id}`} className="song_id hide">{b+1}</p>
+        <img id={`equal_${video_id}`} className="song_equal" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
+      </>)
+    }else if(song_id === a && song_status === "2"){
+      return(<>
+        <p id={`song_${video_id}`} className="song_id" css={css`color: #00B050 !important;`}>{b+1}</p>
+        <img id={`equal_${video_id}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
+      </>)
+    }else{
+      return(
+        <>
+          <p id={`song_${video_id}`} className="song_id">{b+1}</p>
+          <img id={`equal_${video_id}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
+        </>
+      )
+    }
+  }
+
+  function RenderControls(a){
+    if(song_id === a && song_status === "1"){
+      return(<>
+          <img alt="play_filled.svg" src={Icons.play_filled} className="play hide"/>
+          <img alt="play_filled.svg" className="pause" src={Icons.stop}/>
+      </>)
+    }else{
+      return(<>
+        <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
+        <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
+      </>)
+    }
+  }
+  function RenderNamer(a){
+    
+    if(song_id === a && song_status === "1"){
+      return(<p id={`song_name`} css={css`color: #00B050 !important;`}>{name ? name:"NameSong"}</p>)
+    }else if(song_id === a && song_status === "2"){
+      return(<p id={`song_name`} css={css`color: #00B050 !important;`}>{name ? name:"NameSong"}</p>)
+    }else{
+      return(<p id={`song_name`}>{name ? name:"NameSong"}</p>)
+    }
+  }
+  
   return (
     <SongListStyled>
       <SongId>
-        <p id={`song_${position+1}`} className="song_id">{position+1}</p>
-        <img id={`equal_${position+1}`} className="song_equal hide" alt="equal.img" css={css`width: 14px; height: 14px;`} src="https://open.scdn.co/cdn/images/equaliser-animated-green.73b73928.gif" />
-        <StyledPlay className="controls_song" id={`play_${position+1}`} onClick={(e) => {ChangeSongId(video_id)}}>
-          <img alt="play_filled.svg" src={Icons.play_filled} className="play"/>
-          <img alt="play_filled.svg" className="pause hide" src={Icons.stop}/>
+          {RenderIdEqual(video_id , position)}
+        <StyledPlay className="controls_song" id={`play_${video_id}`} onClick={(e) => {ChangeSongId(video_id)}}>
+          {RenderControls(video_id)}
         </StyledPlay>
       </SongId>
       <SongInfo>
         <img alt="album.img" src={img_url ? img_url:X_Y} css={css`width:40px; height: 40px;`}/>
         <div>
-          <p id="song_name">{name ? name:"NameSong"}</p>
+          {RenderNamer(video_id)}
           <p id="artist">{artist_name ? artist_name:"ArtisSong"}</p>
         </div>
       </SongInfo>
@@ -118,6 +164,7 @@ const SongInfo = styled.div`
   flex-direction: row;
   gap: 16px;
   & #song_name{
+    max-width: 280px;
     font-family: 'Milliard Book';
     font-size: 16px;
     font-weight: 400;
@@ -125,6 +172,9 @@ const SongInfo = styled.div`
     letter-spacing: normal;
     text-transform: none;
     color: #FFFFFF;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 

@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import MiniCardPlay from "./MiniCardPlay";
 import CardPlay from "./CardPlay";
 import dataPlaylists from '../../app/defaultLists'
-import ArtistCard from "../ui/ArtistCard";
 
 export default function Playlist(props) {
 
@@ -52,11 +51,11 @@ const StyledPlaylist = styled.div`
 const YourPlaylist = styled.div`
   background: #000;
   display: flex;
-  margin: 30px 0
+  margin: 30px 0;
   
 `;
 const CurrentPlaylist = styled.div`
   background: #000;
   display: flex;
-  margin: 30px 0
+  margin: 30px 0;
 `;

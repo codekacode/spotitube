@@ -12,7 +12,7 @@ export default function CardSong({idsong}) {
           <h3>{name}</h3>
           <span>This is a playlist that has a variety of songs</span>
         </StyleCardContent> */}
-        <iframe width="200" height="150" scr={`http://www.youtube.com/embed/${idsong}`} frameBorder="0" allowFullScreen ></iframe>
+        <iframe title="youtube_player" width="200" height="150" scr={`http://www.youtube.com/embed/${idsong}`} frameBorder="0" allowFullScreen ></iframe>
         <StyleIcon className="play-icon">
           <PlayIcon />
         </StyleIcon>
@@ -34,34 +34,6 @@ const StyleCard = styled.div`
       opacity: 1;
       transition: 180ms opacity ease-in-out;
     }
-  }
-`;
-
-const StyleCardImg = styled.div`
-  height: 160px;
-  width: 210px;
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const StyleCardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 8px;
-  padding: 0.4rem 0;
-  & h3 {
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 0;
-    letter-spacing: 0.6px;
-  }
-  span {
-    margin-top: 8px;
-    font-size: 1rem;
-    color: #b3b3b3;
   }
 `;
 

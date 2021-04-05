@@ -11,7 +11,8 @@ const dataPlaylists = [
     {
       id: 102,
       category_id: 3,
-      name: 'Home playlist 2',
+      name: 'Daft Punk',
+      list_id: 'PLFrBWcoBToIJzsPRpFRf-6jGLo6wVsHS0',
       img:
         'https://images.unsplash.com/photo-1587151711096-23c51f92c920?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
       desc: 'Lorem ipsum',
@@ -19,7 +20,8 @@ const dataPlaylists = [
     {
       id: 103,
       category_id: 3,
-      name: 'Home playlist 3',
+      name: 'CodekaMusic',
+      list_id: "PLWOrVFEdnhrOgmUMqfhkbwy5gZTTJEnCb",
       img:
         'https://res.cloudinary.com/dvssrwm6g/image/upload/c_scale,w_90/v1617313017/imagen_2021-04-01_163604_r3d3nt.png',
       desc: 'Lorem ipsum',

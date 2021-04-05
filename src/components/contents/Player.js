@@ -1,13 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import YouTube from 'react-youtube';
+import {setStatusSong} from "../../features/player/playerSlice"
 import Icons from "../ui/Icons"
 import Colors from "../ui/Colors"
-import { useState } from "react";
+
 
 function Player(){
+  const dispatch = useDispatch();
   const [ queryVideo, setQueryVideo] = useState();
   const song_id = useSelector((state) => state.player.song_id);
   const opts = {
@@ -17,15 +20,23 @@ function Player(){
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
-  };
+  }
+
   const onReady= (e) => {
-    console.log(e.target)
     setQueryVideo(e.target);
-    e.target.pauseVideo();
+  }
+
+  const onState = (e) =>{
+    if(e.data === 1){
+      dispatch(setStatusSong("1"))
+    }else{
+      dispatch(setStatusSong("2"))
+    }
   }
 
   return(
     <StyledPlayer>
+        <YouTube containerClassName={"video_audio"} videoId={song_id} opts={opts} id={"test"} onReady={onReady} onStateChange={onState} />
         <StyledControl>
           <StyledIcon alt="prev.svg" src={Icons.prev}/>
           <StyledPlay id="controls_footer" onClick={(e) => PlayPause(e, queryVideo)}>
@@ -76,7 +87,6 @@ function Player(){
           </div>
           <p>00:00</p>
         </ProgressBar>
-        <YouTube containerClassName={"video_audio"} videoId={song_id} opts={opts} id={"test"} onReady={onReady}/>
     </StyledPlayer>
   );
 }
@@ -133,17 +143,11 @@ const ProgressBar = styled.div`
 `;
 
 function PlayPause(e, queryVideo){
-  const play = e.currentTarget;
   const video_state = queryVideo.getPlayerState();
-  console.log(queryVideo.getPlayerState())
   if(video_state===2 || video_state===0){
     queryVideo.playVideo();
-    play.querySelector(".play").classList.toggle("hide");
-    play.querySelector(".pause").classList.toggle("hide");
   }else{
     queryVideo.pauseVideo();
-    play.querySelector(".play").classList.toggle("hide");
-    play.querySelector(".pause").classList.toggle("hide");
   }
 } 
 

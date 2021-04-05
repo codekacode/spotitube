@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearch} from "../features/search/searchSlice";
 import styled from "@emotion/styled";
-import CardSong from "../components/ui/CardSong";
 import Iframe from "react-iframe";
 import HeaderSearch from "../components/contents/Headers/HeaderSearch";
 
@@ -32,26 +31,6 @@ const InputContent = styled.div`
 
 function Search() {
 
-//------------------------------------
-  /* para usar install-> yarn add youtube-search*/
-//   const search = require('youtube-search');
-
-// const opts = {
-//   maxResults: 5,
-//   key: 'AIzaSyBaVOdzcuMKYlByc7LUh16DVFpajUrQs1s'
-// };
-
-// const searchSong = (query) => {
-// search(`${query} music`, opts, function(err, results) {
-//   if(err) {return console.log(err);}
-  
-//   console.dir(results);
-//   return results;
-// });
-// }
-
-//------------------------------------
-
   const [query, setQuery] = useState("trend");
   const dispatch = useDispatch();
 
@@ -60,34 +39,19 @@ function Search() {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-
   let timerID;
-  // if (query !==""){
-  //   timerID = setTimeout(dispatch(fetchSearch(query)), 1000);
-  // }
-  //searchSong(query);
-  console.log(query);
-  return () => clearTimeout(timerID);
-  //Search.setState({submitted: true});
+  return () => clearTimeout(timerID);;
 };
 
-// useEffect(()=>{
-//   searchSong(query);
-// }, [searchSong]);
-
-useEffect(()=>{
-  
-  let timerID;
-  //dispatch(fetchSearch({query}));
-  console.log(query)
-  const fetchQ = dispatch(fetchSearch(query));
-  if (query !==""){
-    timerID = setTimeout(fetchQ, 2000);
-  }
-
-  return () => clearTimeout(timerID);
-
-},[query]);
+//useEffect(()=>{
+// let timerID;
+//  console.log(query)
+//  const fetchQ = dispatch(fetchSearch(query));
+//  if (query !==""){
+//    timerID = setTimeout(fetchQ, 2000);
+//  }
+//  return () => clearTimeout(timerID);
+//},[query]);
 
   return (
     <StyledDiv>
