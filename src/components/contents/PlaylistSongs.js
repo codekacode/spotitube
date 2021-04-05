@@ -19,10 +19,15 @@ export default function PlaylistSongs({song_data}) {
           </svg>
         </HeadTime>
       </ListHeadings>
-      {console.log(song_data)}
       {song_data.map((song) => {
+        console.log(new Date(song.snippet.publishedAt))
         return(
-          <Song key={song.snippet.position} name={song.snippet.title} position={song.snippet.position} date={song.snippet.publishedAt} video_id={song.snippet.resourceId.videoId}/>
+          <Song key={song.snippet.position} 
+          name={song.snippet.title} 
+          position={song.snippet.position} 
+          date={song.snippet.publishedAt} 
+          artist_name={song.snippet.videoOwnerChannelTitle} 
+          video_id={song.snippet.resourceId.videoId}/>
         );
       })}
     </StyledPlaylist>
