@@ -48,7 +48,7 @@ export default function Song({name, position, img_url, artist_name, album_name, 
               cursor: none;
             }
           `}/>
-          <YouTube containerClassName={`video_audio video_${video_id}`} videoId={video_id} opts={opts}  onReady={(e)=>{e.target.pauseVideo()}} />
+          <YouTube containerClassName={`video_audio video_${video_id}`} videoId={video_id} opts={opts}  onReady={(e)=>{e.target.playVideo()}} />
         </>
       )
     }
