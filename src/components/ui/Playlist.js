@@ -1,27 +1,27 @@
 import styled from "@emotion/styled";
 import MiniCardPlay from "./MiniCardPlay";
 import CardPlay from "./CardPlay";
-import dataPlaylists from '../../app/defaultLists'
+import {LoMasEscuchado, MusicGames} from '../../app/defaultLists'
 
 export default function Playlist(props) {
 
   return (
     <StyledPlaylist>
-      <h1 className="title">!Buenas tardes!</h1>
+      <h1 className="title">Artistas mas escuchados</h1>
       <MiniWrapper>
-        {dataPlaylists.map((playlist) => (
-          <MiniCardPlay playlist={playlist}/>
+        {LoMasEscuchado.map((playlist) => (
+          <MiniCardPlay key={playlist.id} playlist={playlist}/>
         ))}
       </MiniWrapper>
-      <h3>Your Playlist</h3>
+      <h3>Musica de Videojuegos</h3>
       <YourPlaylist>
-        {dataPlaylists.map((playlist) => (
+        {MusicGames.map((playlist) => (
           <CardPlay playlist_data={playlist} />
         ))}
       </YourPlaylist>
       <h3>Escuchados Recientemente</h3>
       <CurrentPlaylist>
-      {dataPlaylists.map((playlist) => (
+      {LoMasEscuchado.map((playlist) => (
         <CardPlay playlist_data={playlist} />
       ))}
       </CurrentPlaylist>
@@ -29,33 +29,37 @@ export default function Playlist(props) {
     </StyledPlaylist>
   )
 }
-const MiniWrapper = styled.div`
-  background: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
-  margin: 40px 0;
-`;
 
 const StyledPlaylist = styled.div`
+  width: 100%;
   padding: 30px;
-  background: #000;
+  background: #121212;
   & h3{
     font-size: 26px;
   }
   & .title{
-    font-size: 34px;
+    font-size: 30px;
   }
 `;
 
-const YourPlaylist = styled.div`
-  background: #000;
+const MiniWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 40px 0;
+`;
+
+const YourPlaylist = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 30px 0;
   
 `;
 const CurrentPlaylist = styled.div`
-  background: #000;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 30px 0;
 `;

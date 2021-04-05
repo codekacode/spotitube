@@ -16,7 +16,6 @@ function ChangeSongStatus (dispatch, song_status) {
 
 function DateFormat(date){
   const mydate = new Date(date);
-  console.log(mydate)
   const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"][mydate.getMonth()];
   const str = mydate.getDate() + ' de ' + month + ' del ' + mydate.getFullYear();
   return str;

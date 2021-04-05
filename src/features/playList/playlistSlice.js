@@ -4,7 +4,7 @@ import { BASE_URI_PLAYLIST, KEY_API } from "../../app/config"
 export const fetchPlaylist = createAsyncThunk(
   "video/fetchPlaylist",
   async (Search_id) => {
-    const response = await fetch(`${BASE_URI_PLAYLIST + Search_id + KEY_API}&maxResults=30` , {
+    const response = await fetch(`${BASE_URI_PLAYLIST + Search_id + KEY_API}&maxResults=50` , {
       method: "GET",   
     });
 

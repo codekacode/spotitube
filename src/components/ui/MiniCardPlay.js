@@ -22,7 +22,7 @@ function MiniCardPlay({playlist}) {
             <img alt="Card.img" src={playlist.img}/>
           </StyleCardImg>
           <StyleCardContent>
-            <h3>{playlist.name}</h3>
+            <h3 css={css`width:190px;`}>{playlist.name}</h3>
           </StyleCardContent>
           <StyleIcon className="play-icon">
             <PlayIcon />
@@ -37,7 +37,7 @@ const StyleCard = styled.div`
   display: flex;
   align-items: center;
   height: 90px;
-  width: 400px;
+  width: 320px;
   position: relative;
   cursor: pointer;
   background: #3c4347;
@@ -90,7 +90,7 @@ const StyleIcon = styled.div`
   margin-left: auto;
   opacity: 0;
   position: absolute;
-  right:20px;
+  right:15px;
   bottom: 25px;
   & svg {
     margin: auto;
